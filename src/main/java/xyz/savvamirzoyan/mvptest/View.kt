@@ -2,16 +2,12 @@ package xyz.savvamirzoyan.mvptest
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity(), MainContract.View {
-
-    private val TAG = "MainContract.View"
-
     private val presenter: Presenter = Presenter(this)
 
     private lateinit var signUpButton: Button
@@ -54,25 +50,21 @@ class MainActivity : AppCompatActivity(), MainContract.View {
 
     @SuppressLint("SetTextI18n")
     override fun userAlreadyExists() {
-        Log.d(TAG, "display userAlreadyExists")
         signUpTV.text = "Cannot create user. User already exists"
     }
 
     @SuppressLint("SetTextI18n")
     override fun successfulSignedUp() {
-        Log.d(TAG, "display successfulSignedUp")
         signUpTV.text = "New user has been created!"
     }
 
     @SuppressLint("SetTextI18n")
     override fun wrongUsernameOrPassword() {
-        Log.d(TAG, "display wrongUsernameOrPassword")
         logInTV.text = "Wrong username or password"
     }
 
     @SuppressLint("SetTextI18n")
     override fun successfulLogIn() {
-        Log.d(TAG, "display successfulLogIn")
         logInTV.text = "Successfully logged in"
     }
 
